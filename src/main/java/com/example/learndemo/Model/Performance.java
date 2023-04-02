@@ -5,11 +5,11 @@ import java.util.Date;
 public class Performance {
     private int learningZone;
 
-    private Date completed;
+    private String completed;
 
     private int actualTimeTake;
 
-    public Performance(int learningZone, Date completed, int actualTimeTake) {
+    public Performance(int learningZone, String completed, int actualTimeTake) {
         this.learningZone = learningZone;
         this.completed = completed;
         this.actualTimeTake = actualTimeTake;
@@ -23,11 +23,11 @@ public class Performance {
         this.learningZone = learningZone;
     }
 
-    public Date getCompleted() {
+    public String getCompleted() {
         return completed;
     }
 
-    public void setCompleted(Date completed) {
+    public void setCompleted(String completed) {
         this.completed = completed;
     }
 

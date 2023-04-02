@@ -1,19 +1,17 @@
 package com.example.learndemo.Model;
 
-import org.bson.types.ObjectId;
-
 public class GoalItem {
-    private ObjectId goalid;
+    private String goalid;
     private String dueDate;
 
     private int timePreDay;
 
-    public GoalItem(ObjectId goalid, String dueDate) {
+    public GoalItem(String goalid, String dueDate) {
         this.goalid = goalid;
         this.dueDate = dueDate;
     }
 
-    public ObjectId getGoalid() {
+    public String getGoalid() {
         return goalid;
     }
 

@@ -11,18 +11,22 @@ import java.util.List;
 public interface TaskRepository extends MongoRepository<Task, Integer> {
     @Query("{'_id' : ?0}")
     Task findById(ObjectId id);
-    @Query("{'todolist._id' : ?0}")
+    @Query("{'todoId' : ?0}")
     List<Task> findByTodoId(ObjectId todoId);
 
-    @Query("{'userid' : ?0}")
+    @Query("{'userId' : ?0, 'goalId' : ?1}")
+    List<Task> findByUserAndGoal(ObjectId userId, ObjectId goalId);
+
+    @Query("{'userId' : ?0}")
     List<Task> findByUserId(ObjectId userId);
 
-    @Query("{'goalid' : ?0}")
+    @Query("{'goalId' : ?0}")
     List<Task> findByGoalId(ObjectId goalId);
 
     Task save(Task update);
 
-    @Query("{'_id' : ?0}")
+    @Query(value="{'_id' : ?0}", delete = true)
     void deleteById(ObjectId id);
 }
+
 

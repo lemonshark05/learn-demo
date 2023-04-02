@@ -1,21 +1,18 @@
 package com.example.learndemo.Model;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Date;
 import java.util.List;
 @Document("tasks")
 public class Task {
     @Id
-    private ObjectId id;
+    private String id;
 
-    private ObjectId todoId;
+    private String todoId;
 
-    private ObjectId userId;
+    private String userId;
 
-    private ObjectId goalId;
+    private String goalId;
 
     private String reviewDate;
 
@@ -24,7 +21,7 @@ public class Task {
     private List<Performance> performance;
     public Task() {
     }
-    public Task(ObjectId todoId, ObjectId userId, ObjectId goalId, String reviewDate, String dueDate) {
+    public Task(String todoId, String userId, String goalId, String reviewDate, String dueDate) {
         this.todoId = todoId;
         this.userId = userId;
         this.goalId = goalId;
@@ -32,30 +29,30 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
-    public ObjectId getTodoId() {
+    public String getTodoId() {
         return todoId;
     }
 
-    public void setTodoId(ObjectId todoId) {
+    public void setTodoId(String todoId) {
         this.todoId = todoId;
     }
 
-    public ObjectId getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(ObjectId userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public ObjectId getGoalId() {
+    public String getGoalId() {
         return goalId;
     }
 
-    public void setGoalId(ObjectId goalId) {
+    public void setGoalId(String goalId) {
         this.goalId = goalId;
     }
 

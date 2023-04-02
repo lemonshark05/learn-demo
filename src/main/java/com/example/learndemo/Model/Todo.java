@@ -1,5 +1,4 @@
 package com.example.learndemo.Model;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.text.SimpleDateFormat;
@@ -15,8 +14,8 @@ public class Todo {
     private String title;
     private String description;
     private String createdDate;
-    private List<ObjectId> tasklist;
-    private List<ObjectId> sharedWith;
+    private List<String> tasklist;
+    private List<String> sharedWith;
     private int expectedTimeTake;
     private int difficultyLevel;
 
@@ -81,11 +80,11 @@ public class Todo {
         this.createdDate = createdDate;
     }
 
-    public List<ObjectId> getTasklist() {
+    public List<String> getTasklist() {
         return tasklist;
     }
 
-    public void setTasklist(List<ObjectId> tasklist) {
+    public void setTasklist(List<String> tasklist) {
         this.tasklist = tasklist;
     }
 
@@ -105,7 +104,7 @@ public class Todo {
         this.difficultyLevel = difficultyLevel;
     }
 
-    public List<ObjectId> getSharedWith() {
+    public List<String> getSharedWith() {
         return sharedWith;
     }
 
@@ -123,7 +122,7 @@ public class Todo {
                 '}';
     }
 
-    public void setSharedWith(List<ObjectId> sharedWith) {
+    public void setSharedWith(List<String> sharedWith) {
         this.sharedWith = sharedWith;
     }
 }

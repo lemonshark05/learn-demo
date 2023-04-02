@@ -14,13 +14,13 @@ public interface GoalRepository extends MongoRepository<Goal, Integer> {
     @Query("{'_id' : ?0}")
     Goal findById(ObjectId id);
 
-    @Query("{'title' : ?0}")
+    @Query("{'title' : {$regex : ?0, $options: 'i'}}")
     List<Goal> findByTitle(String title);
 
     @Query("{'author' : ?0}")
-    List<Goal> findByAuthor(String author);
+    List<Goal> findByAuthor(ObjectId author);
 
-    @Query("{'description' : ?0}")
+    @Query("{'description' : {$regex : ?0, $options: 'i'}}")
     List<Goal> findByDescription(String description);
 
     @Query("{'targetDate' : ?0}")
@@ -31,6 +31,6 @@ public interface GoalRepository extends MongoRepository<Goal, Integer> {
 
     Goal save(Goal goal);
 
-    @Query("{'_id' : ?0}")
+    @Query(value="{'_id' : ?0}", delete = true)
     void deleteById(ObjectId id);
 }

@@ -12,14 +12,15 @@ import java.util.List;
 @Document("todolist")
 public interface TodoRepository extends MongoRepository<Todo, Integer> {
 
-    //    @Query("{'_id : ObjectId(?0)}")
     @Query("{'_id' : ?0}")
-    Todo findById(String id);
+    Todo findById(ObjectId id);
 
-    @Query("{'title' : ?0}")
+    @Query("{'goalId' : ?0}")
+    List<Todo> findByGoalid(ObjectId goalid);
+    @Query("{'title' : {$regex : ?0, $options: 'i'}}")
     List<Todo> findByTitle(String title);
 
-    @Query("{'description' : ?0}")
+    @Query("{'description' : {$regex : ?0, $options: 'i'}}")
     List<Todo> findByDescription(String description);
 
     @Query("{'sharedWith' : ?0}")
@@ -30,6 +31,6 @@ public interface TodoRepository extends MongoRepository<Todo, Integer> {
 
     Todo save(Todo todo);
 
-    @Query("{'_id' : ?0}")
+    @Query(value="{'_id' : ?0}", delete = true)
     void deleteById(ObjectId id);
 }

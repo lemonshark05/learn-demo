@@ -1,5 +1,4 @@
 package com.example.learndemo.Model;
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,16 +9,16 @@ import java.util.List;
 @Document("users")
 public class User {
     @Id
-    private ObjectId id;
+    private String id;
     @Indexed(unique=true)
     private String username;
     private String password;
     private String title;
     private String email;
-    private List<ObjectId> todolist;
+    private List<String> todolist;
     //goal add a duedate
     private List<GoalItem> goallist;
-    private List<ObjectId> tasklist;
+    private List<String> tasklist;
 
     // Default constructor
     public User() {
@@ -29,14 +28,14 @@ public class User {
         this.goallist = new ArrayList<>();
     }
 
-    public User(ObjectId id, String password, String email, String username) {
+    public User(String id, String password, String email, String username) {
         this.password = password;
         this.email = email;
         this.username = username;
         this.goallist = new ArrayList<>();
     }
 
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
 
@@ -64,19 +63,19 @@ public class User {
         this.email = email;
     }
 
-    public List<ObjectId> getTodolist() {
+    public List<String> getTodolist() {
         return todolist;
     }
 
-    public void setTodolist(List<ObjectId> todolist) {
+    public void setTodolist(List<String> todolist) {
         this.todolist = todolist;
     }
 
-    public List<ObjectId> getTasklist() {
+    public List<String> getTasklist() {
         return tasklist;
     }
 
-    public void setTasklist(List<ObjectId> tasklist) {
+    public void setTasklist(List<String> tasklist) {
         this.tasklist = tasklist;
     }
 
@@ -97,7 +96,7 @@ public class User {
         this.goallist = goallist;
     }
 
-    public void addGoal(ObjectId goalId, String dueDate) {
+    public void addGoal(String goalId, String dueDate) {
         this.goallist.add(new GoalItem(goalId, dueDate));
     }
 
