@@ -2,16 +2,19 @@ package com.example.learndemo.Model;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Document("todolist")
 public class Todo {
     @Id
     private String id;
+
+    private String goalId;
+
     private String title;
     private String description;
-    private Date createdDate;
+    private String createdDate;
     private List<ObjectId> tasklist;
     private List<ObjectId> sharedWith;
     private int expectedTimeTake;
@@ -42,14 +45,15 @@ public class Todo {
     public Todo(String title) {
         this.title = title;
         this.description = "";
-        this.createdDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        this.createdDate = dateFormat.format(new Date());
         this.sharedWith = new ArrayList<>();
     }
 
-    public Todo(String id, String title, String description, Date createdAt) {
+    public Todo(String title, String description, String createdDate) {
         this.title = title;
         this.description = description;
-        this.createdDate = createdAt;
+        this.createdDate = createdDate;
         this.sharedWith = new ArrayList<>();
     }
 
@@ -69,11 +73,11 @@ public class Todo {
         this.description = description;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 

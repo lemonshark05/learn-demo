@@ -1,37 +1,34 @@
 package com.example.learndemo.Model;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
 import java.util.List;
 
 @Document("goals")
 public class Goal {
     @Id
-    private ObjectId id;
+    private String id;
     private String title;
     private String description;
-    private Date createdDate;
+    private String createdDate;
     //day
     private int recommendTerms;
     //get all todo detail in a list
-    private List<ObjectId> todolist;
-    private List<ObjectId> sharedWith;
+    private List<String> todolist;
+    private List<String> sharedWith;
 
-    private ObjectId author;
+    private String author;
     private String category;
-
     public Goal() {
     }
-    public Goal(String title, String description, Date createdDate, int targetDate) {
+    public Goal(String title, String description, String createdDate, int targetDate) {
         this.title = title;
         this.description = description;
         this.createdDate = createdDate;
         this.recommendTerms = targetDate;
     }
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
     public String getTitle() {
@@ -50,11 +47,11 @@ public class Goal {
         this.description = description;
     }
 
-    public Date getCreatedDate() {
+    public String getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(Date createdDate) {
+    public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
     }
 
@@ -66,19 +63,19 @@ public class Goal {
         this.recommendTerms = targetDate;
     }
 
-    public List<ObjectId> getTodolist() {
+    public List<String> getTodolist() {
         return todolist;
     }
 
-    public void setTodolist(List<ObjectId> todolist) {
+    public void setTodolist(List<String> todolist) {
         this.todolist = todolist;
     }
 
-    public ObjectId getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(ObjectId author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
@@ -90,12 +87,29 @@ public class Goal {
         this.category = category;
     }
 
-    public List<ObjectId> getSharedWith() {
+    public List<String> getSharedWith() {
+        return sharedWith;
+    }
+    public List<String> addSharedWith(String userid) {
+        this.sharedWith.add(userid);
         return sharedWith;
     }
 
-    public void setSharedWith(List<ObjectId> sharedWith) {
+    public List<String> addTodoList(String id) {
+        this.todolist.add(id);
+        return todolist;
+    }
+
+    public void setSharedWith(List<String> sharedWith) {
         this.sharedWith = sharedWith;
+    }
+
+    public int getRecommendTerms() {
+        return recommendTerms;
+    }
+
+    public void setRecommendTerms(int recommendTerms) {
+        this.recommendTerms = recommendTerms;
     }
 
     @Override
@@ -104,7 +118,7 @@ public class Goal {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", createdDate=" + createdDate +
+                ", createdDate='" + createdDate + '\'' +
                 ", recommendTerms=" + recommendTerms +
                 ", todolist=" + todolist +
                 ", sharedWith=" + sharedWith +
