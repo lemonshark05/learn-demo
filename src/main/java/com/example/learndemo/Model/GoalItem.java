@@ -18,4 +18,20 @@ public class GoalItem {
     public String getDueDate() {
         return dueDate;
     }
+
+    public void setGoalid(String goalid) {
+        this.goalid = goalid;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public int getTimePreDay() {
+        return timePreDay;
+    }
+
+    public void setTimePreDay(int timePreDay) {
+        this.timePreDay = timePreDay;
+    }
 }

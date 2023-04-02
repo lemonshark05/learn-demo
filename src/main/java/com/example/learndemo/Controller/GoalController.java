@@ -1,5 +1,7 @@
 package com.example.learndemo.Controller;
 import com.example.learndemo.Model.Goal;
+import com.example.learndemo.Model.Task;
+import com.example.learndemo.Model.Todo;
 import com.example.learndemo.Repository.GoalRepository;
 import com.example.learndemo.Repository.TaskRepository;
 import com.example.learndemo.Repository.TodoRepository;

@@ -20,20 +20,6 @@ public class Todo {
     private int difficultyLevel;
 
 
-    /**
-     *
-     * @param date
-     * @param num
-     * @return
-     */
-    public Date getAfterDate(Date date, int num) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.DAY_OF_YEAR, num);
-        Date res = calendar.getTime();
-        return res;
-    }
-
     public Todo() {
     }
 
@@ -54,6 +40,22 @@ public class Todo {
         this.description = description;
         this.createdDate = createdDate;
         this.sharedWith = new ArrayList<>();
+    }
+
+    public String getGoalid() {
+        return goalId;
+    }
+
+    public void setGoalid(String goalid) {
+        this.goalId = goalid;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -108,21 +110,31 @@ public class Todo {
         return sharedWith;
     }
 
+    public Todo copyTodo(Todo todo){
+        Todo newTodo = todo;
+        newTodo.setId(null);
+        newTodo.setGoalid(null);
+        newTodo.setTasklist(null);
+        newTodo.setSharedWith(null);
+        return newTodo;
+    }
+
+    public void setSharedWith(List<String> sharedWith) {
+        this.sharedWith = sharedWith;
+    }
+
     @Override
     public String toString() {
         return "Todo{" +
-                "id='" + id + '\'' +
+                "id=" + id +
+                ", goalid=" + goalId +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", createdDate=" + createdDate +
+                ", createdDate='" + createdDate + '\'' +
                 ", tasklist=" + tasklist +
                 ", sharedWith=" + sharedWith +
                 ", expectedTimeTake=" + expectedTimeTake +
                 ", difficultyLevel=" + difficultyLevel +
                 '}';
-    }
-
-    public void setSharedWith(List<String> sharedWith) {
-        this.sharedWith = sharedWith;
     }
 }
