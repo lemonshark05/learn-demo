@@ -1,5 +1,4 @@
 package com.example.learndemo.Model;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
@@ -19,7 +18,16 @@ public class Task {
     private String dueDate;
 
     private List<Performance> performance;
+
+    private boolean active;
     public Task() {
+        this.active = false;
+    }
+    public Task(String todoId, String userId, String goalId) {
+        this.todoId = todoId;
+        this.userId = userId;
+        this.goalId = goalId;
+        this.active = false;
     }
     public Task(String todoId, String userId, String goalId, String reviewDate, String dueDate) {
         this.todoId = todoId;
@@ -27,6 +35,7 @@ public class Task {
         this.goalId = goalId;
         this.reviewDate = reviewDate;
         this.dueDate = dueDate;
+        this.active = false;
     }
 
     public String getId() {
@@ -80,6 +89,14 @@ public class Task {
         this.performance = performance;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     @Override
     public String toString() {
         return "Task{" +
@@ -90,6 +107,7 @@ public class Task {
                 ", reviewDate='" + reviewDate + '\'' +
                 ", dueDate='" + dueDate + '\'' +
                 ", performance=" + performance +
+                ", active=" + active +
                 '}';
     }
 }
