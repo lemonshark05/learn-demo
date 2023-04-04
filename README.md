@@ -1,12 +1,12 @@
 # SpringBoot(Maven)
 
-## Download the demo from spring initializr, because of my intellij idea is commitintellij idea is community version. (Add Mongo and web to the demo.)
+### Download the demo from spring initializr, because of my intellij idea is commitintellij idea is community version. (Add Mongo and web to the demo.)
 
  -[x] Link: [https://start.spring.io/](https://start.spring.io/)
 
 ### Complete the backend of spring-boot：
 
-reference link: 
+ -[x] reference link: 
 
 (Maven: Use the link to add my `dependencies`)  [https://mvnrepository.com/](https://mvnrepository.com/)
 
@@ -21,15 +21,15 @@ reference link:
 
 (Postman: API Test) [https://grey-sunset-457798.postman.co/workspace/New-Team-Workspace~d743dc25-2e45-4ee2-9f5e-27f82a2e8e7a/request/26573764-f2d0bfa9-0623-4c94-9efe-f971c1602f03](https://grey-sunset-457798.postman.co/workspace/New-Team-Workspace~d743dc25-2e45-4ee2-9f5e-27f82a2e8e7a/request/26573764-f2d0bfa9-0623-4c94-9efe-f971c1602f03)
 
-[http://localhost:8099/learning?name=User](http://localhost:8099/learning?name=User)
+http://localhost:8099/learning?name=User
 
-[http://localhost:8099/chat?question="Thank you for your answer but I really love cat.”](http://localhost:8099/chat?question=%22Thank%20you%20for%20your%20answer%20but%20I%20really%20love%20cat.%E2%80%9D)
+http://localhost:8099/chat?question="Thank you for your answer but I really love cat.”
 
 1. Choice to save data on the cloud(MongoDB Atlas)
 
 MongoDB Atlas: [https://cloud.mongodb.com/v2#/org/6418e5752a512b09e6e37db6/projects](https://cloud.mongodb.com/v2#/org/6418e5752a512b09e6e37db6/projects)
 
-Data: (Python3) 
+### Data: (Python3) 
 1) Write a crawler script to get all free problems on the Leetcode website.
 
 2) Write a script to generate all fake data according to our designed logic
