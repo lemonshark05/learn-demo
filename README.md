@@ -1,10 +1,10 @@
 # SpringBoot(Maven)
 
-1. Download the demo from spring initializr, because of my intellij idea is commitintellij idea is community version. (Add Mongo and web to the demo.)
+## Download the demo from spring initializr, because of my intellij idea is commitintellij idea is community version. (Add Mongo and web to the demo.)
 
-Link: [https://start.spring.io/](https://start.spring.io/)
+ -[x] Link: [https://start.spring.io/](https://start.spring.io/)
 
-1. Complete the backend of spring-boot：
+### Complete the backend of spring-boot：
 
 reference link: 
 
